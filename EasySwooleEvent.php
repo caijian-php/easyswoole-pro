@@ -50,11 +50,13 @@ class EasySwooleEvent implements Event
                 $redisConfig->setHost($config['host']);
                 $redisConfig->setPort($config['port']);
                 $redisConfig->setAuth($config['auth']);
-                $redisPoolConfig = \EasySwoole\RedisPool\Redis::getInstance()->register('redis',$redisConfig);
-                $redisClusterPoolConfig = \EasySwoole\RedisPool\Redis::getInstance()->register('redisCluster',new \EasySwoole\Redis\Config\RedisClusterConfig([
-                        ['redis', 6379],
-                    ]
-                ));
+                $redisPoolConfig = \EasySwoole\RedisPool\Redis::getInstance()->register('master',$redisConfig);
+                $redisClusterPoolConfig = \EasySwoole\RedisPool\Redis::getInstance()->register('cluster',new \EasySwoole\Redis\Config\RedisClusterConfig([
+                    ['redis', 6380],
+                ],[
+                    'auth' => '',
+                    'serialize' => \EasySwoole\Redis\Config\RedisConfig::SERIALIZE_PHP
+                ]));
                 //配置连接池连接数
                 $redisPoolConfig->setMinObjectNum(5);
                 $redisPoolConfig->setMaxObjectNum(20);

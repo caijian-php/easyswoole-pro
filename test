@@ -1,3 +1,14 @@
 #!/usr/bin/env php
 <?php
-	echo shell_exec("./vendor/bin/co-phpunit ./tests");
+    $args = $argv;
+    //trim first command
+    $one = array_shift($args);
+    if ($one != 'test') {
+        echo "the first of the params is \"test\"";
+        return;
+    }
+    if (empty($args)){
+	    echo shell_exec("./vendor/bin/co-phpunit ./tests");
+    }else{
+        echo shell_exec("./vendor/bin/co-phpunit ".implode(" ",$args));
+    }
