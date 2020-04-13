@@ -360,6 +360,63 @@
         ]
     },
     {
+        "name": "easyswoole/jwt",
+        "version": "1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/easy-swoole/jwt.git",
+            "reference": "2a110a76d172ac095b46c7dec15de2bb29f09b0f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/easy-swoole/jwt/zipball/2a110a76d172ac095b46c7dec15de2bb29f09b0f",
+            "reference": "2a110a76d172ac095b46c7dec15de2bb29f09b0f",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "easyswoole/spl": "^1.2",
+            "easyswoole/utility": "^1.1",
+            "ext-openssl": ">=1.0.0",
+            "php": ">=7.1.0"
+        },
+        "require-dev": {
+            "easyswoole/phpunit": "^1.0"
+        },
+        "time": "2020-03-27T01:51:02+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "EasySwoole\\Jwt\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "YF",
+                "email": "291323003@qq.com"
+            }
+        ],
+        "description": "php stander lib",
+        "homepage": "https://www.easyswoole.com/",
+        "keywords": [
+            "async",
+            "easyswoole",
+            "framework",
+            "swoole"
+        ]
+    },
+    {
         "name": "easyswoole/log",
         "version": "1.0.5",
         "version_normalized": "1.0.5.0",

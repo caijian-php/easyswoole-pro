@@ -30,6 +30,7 @@ return array(
     'EasySwoole\\Mysqli\\Tests\\' => array($vendorDir . '/easyswoole/mysqli/tests'),
     'EasySwoole\\Mysqli\\' => array($vendorDir . '/easyswoole/mysqli/src'),
     'EasySwoole\\Log\\' => array($vendorDir . '/easyswoole/log/src'),
+    'EasySwoole\\Jwt\\' => array($vendorDir . '/easyswoole/jwt/src'),
     'EasySwoole\\Http\\' => array($vendorDir . '/easyswoole/http/src'),
     'EasySwoole\\EasySwoole\\' => array($vendorDir . '/easyswoole/easyswoole/src'),
     'EasySwoole\\DDL\\Test\\' => array($vendorDir . '/easyswoole/ddl/test'),
