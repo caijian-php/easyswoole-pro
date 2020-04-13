@@ -4,6 +4,7 @@
 namespace EasySwoole\ORM\Db;
 
 
+use EasySwoole\EasySwoole\Logger;
 use EasySwoole\Mysqli\Client;
 use EasySwoole\Mysqli\QueryBuilder;
 use EasySwoole\ORM\Exception\Exception;
@@ -23,6 +24,9 @@ class MysqliClient extends Client implements ClientInterface,ObjectInterface
         $error = '';
         $stmt = null;
         try{
+            debug(function()use($builder){
+                Logger::getInstance()->console($builder->getLastQuery());
+            });
             if($rawQuery){
                 $ret = $this->rawQuery($builder->getLastQuery(),$this->config->getTimeout());
             }else{
