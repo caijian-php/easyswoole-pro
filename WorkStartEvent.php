@@ -9,11 +9,16 @@ use Symfony\Component\Finder\Finder;
 
 class WorkStartEvent
 {
+    static $notDebug = [
+        '/',
+        '/push/'
+    ];
+
     public static function run(){
         Logger::getInstance()->console(posix_getpid().'启动于'.date('Y-m-d H:i:s'));
+        require EASYSWOOLE_ROOT.'/App/Helper/Functions.php';
     }
 
-    // http服务器刚刚监听到客户端请求
     public static function onRequest(Request $request, Response $response): bool
     {
         setContext('runTime',microtime(true));
@@ -29,7 +34,7 @@ class WorkStartEvent
         $uri = $request->getUri()->getPath();
         setContext('request',[$uri,$request->getRequestParam()]);
         debug(function()use($uri,$request){
-            !in_array($uri,['/','/user/appAuth/login','/push/']) && Logger::getInstance()->info($uri);
+            !in_array($uri,WorkStartEvent::$notDebug) && Logger::getInstance()->info($uri);
         });
 
         return true;

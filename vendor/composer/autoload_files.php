@@ -10,5 +10,4 @@ return array(
     '253c157292f75eb38082b5acb06f3f01' => $vendorDir . '/nikic/fast-route/src/functions.php',
     '538ca81a9a966a6716601ecf48f4eaef' => $vendorDir . '/opis/closure/functions.php',
     '949be0c09af324be614e7b8c2bae3052' => $baseDir . '/App/Helper/System.php',
-    '2c3f7ff9271574bcf0107a92339632f4' => $baseDir . '/App/Helper/Functions.php',
 );

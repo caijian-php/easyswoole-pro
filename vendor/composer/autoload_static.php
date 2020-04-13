@@ -11,7 +11,6 @@ class ComposerStaticInit313e46d61265b0f37f96ca4eb9e9a356
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
         '949be0c09af324be614e7b8c2bae3052' => __DIR__ . '/../..' . '/App/Helper/System.php',
-        '2c3f7ff9271574bcf0107a92339632f4' => __DIR__ . '/../..' . '/App/Helper/Functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -45,9 +44,18 @@ class ComposerStaticInit313e46d61265b0f37f96ca4eb9e9a356
             'EasySwoole\\Spl\\' => 15,
             'EasySwoole\\Session\\Test\\' => 24,
             'EasySwoole\\Session\\' => 19,
+            'EasySwoole\\Redis\\' => 17,
+            'EasySwoole\\RedisPool\\' => 21,
+            'EasySwoole\\Pool\\Tests\\' => 22,
+            'EasySwoole\\Pool\\' => 16,
+            'EasySwoole\\ORM\\' => 15,
+            'EasySwoole\\Mysqli\\Tests\\' => 24,
+            'EasySwoole\\Mysqli\\' => 18,
             'EasySwoole\\Log\\' => 15,
             'EasySwoole\\Http\\' => 16,
             'EasySwoole\\EasySwoole\\' => 22,
+            'EasySwoole\\DDL\\Test\\' => 20,
+            'EasySwoole\\DDL\\' => 15,
             'EasySwoole\\Config\\Test\\' => 23,
             'EasySwoole\\Config\\' => 18,
             'EasySwoole\\Component\\Tests\\' => 27,
@@ -128,6 +136,34 @@ class ComposerStaticInit313e46d61265b0f37f96ca4eb9e9a356
         array (
             0 => __DIR__ . '/..' . '/easyswoole/session/src',
         ),
+        'EasySwoole\\Redis\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/redis/src',
+        ),
+        'EasySwoole\\RedisPool\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/redis-pool/src',
+        ),
+        'EasySwoole\\Pool\\Tests\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/pool/tests',
+        ),
+        'EasySwoole\\Pool\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/pool/src',
+        ),
+        'EasySwoole\\ORM\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/orm/src',
+        ),
+        'EasySwoole\\Mysqli\\Tests\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/mysqli/tests',
+        ),
+        'EasySwoole\\Mysqli\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/mysqli/src',
+        ),
         'EasySwoole\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/easyswoole/log/src',
@@ -139,6 +175,14 @@ class ComposerStaticInit313e46d61265b0f37f96ca4eb9e9a356
         'EasySwoole\\EasySwoole\\' => 
         array (
             0 => __DIR__ . '/..' . '/easyswoole/easyswoole/src',
+        ),
+        'EasySwoole\\DDL\\Test\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/ddl/test',
+        ),
+        'EasySwoole\\DDL\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/ddl/src',
         ),
         'EasySwoole\\Config\\Test\\' => 
         array (

@@ -1,6 +1,10 @@
 <?php
 return [
-    'SERVER_NAME' => "EasySwoole",
+    'ENV' => 'dev',
+    'StdoutLoggerInterface' => [
+        'DEBUG' => true,
+    ],
+    'SERVER_NAME' => "easyswoole-pro",
     'MAIN_SERVER' => [
         'LISTEN_ADDRESS' => '0.0.0.0',
         'PORT' => 9501,

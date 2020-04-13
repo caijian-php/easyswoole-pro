@@ -276,6 +276,9 @@ class Core
                     cli_set_process_title("{$name}.{$type}.{$workerId}");
                 }
             }
+
+            require EASYSWOOLE_ROOT.'/WorkStartEvent.php';
+            WorkStartEvent::run();
         });
 
         EventHelper::registerWithAdd($register,$register::onWorkerExit,function (){

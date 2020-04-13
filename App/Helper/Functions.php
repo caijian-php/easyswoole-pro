@@ -29,15 +29,15 @@ if (! function_exists('num_format')) {
     }
 }
 
-if (! function_exists('enJson')) {
-    function enJson($data)
+if (! function_exists('json_en')) {
+    function json_en($data)
     {
         return json_encode($data,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
     }
 }
 
-if (! function_exists('deJson')) {
-    function deJson(string $json)
+if (! function_exists('json_de')) {
+    function json_de(string $json)
     {
         return json_decode($json,true);
     }
