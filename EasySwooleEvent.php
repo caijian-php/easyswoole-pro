@@ -27,7 +27,7 @@ class EasySwooleEvent implements Event
     public static function mainServerCreate(EventRegister $register)
     {
         echo Utility::displayItem('mainServerCreating','EasySwooleEvent mainServerCreating'.PHP_EOL);
-        DemoInvoker::getInstance(new DemoDriver())->attachServer(ServerManager::getInstance()->getSwooleServer());
+        DemoInvoker::getInstance(new DemoDriver())->setWorkerNum(2)->attachServer(ServerManager::getInstance()->getSwooleServer());
     }
 
     public static function onRequest(Request $request, Response $response): bool
