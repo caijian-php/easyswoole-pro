@@ -46,7 +46,7 @@ if (! function_exists('getContext')) {
 
 if (! function_exists('debug')){
     function debug(callable $callback){
-        $config = config('StdoutLoggerInterface');
+        $config = config('trace');
         if ($config && isset($config['DEBUG']) && $config['DEBUG']) {
             $callback();
         }
