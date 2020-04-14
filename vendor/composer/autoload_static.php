@@ -24,6 +24,10 @@ class ComposerStaticInit313e46d61265b0f37f96ca4eb9e9a356
         array (
             'Webmozart\\Assert\\' => 17,
         ),
+        'T' => 
+        array (
+            'Test\\' => 5,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Util\\' => 22,
@@ -52,6 +56,7 @@ class ComposerStaticInit313e46d61265b0f37f96ca4eb9e9a356
             'EasySwoole\\Utility\\' => 19,
             'EasySwoole\\Trigger\\' => 19,
             'EasySwoole\\Task\\' => 16,
+            'EasySwoole\\SyncInvoker\\' => 23,
             'EasySwoole\\Spl\\Test\\' => 20,
             'EasySwoole\\Spl\\' => 15,
             'EasySwoole\\Session\\Test\\' => 24,
@@ -100,6 +105,10 @@ class ComposerStaticInit313e46d61265b0f37f96ca4eb9e9a356
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
+        'Test\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/tests',
         ),
         'Symfony\\Polyfill\\Util\\' => 
         array (
@@ -156,6 +165,10 @@ class ComposerStaticInit313e46d61265b0f37f96ca4eb9e9a356
         'EasySwoole\\Task\\' => 
         array (
             0 => __DIR__ . '/..' . '/easyswoole/task/src',
+        ),
+        'EasySwoole\\SyncInvoker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/sync-invoker/src',
         ),
         'EasySwoole\\Spl\\Test\\' => 
         array (

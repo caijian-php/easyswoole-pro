@@ -1030,6 +1030,62 @@
         "description": "IDE help files for Swoole."
     },
     {
+        "name": "easyswoole/sync-invoker",
+        "version": "1.0.4",
+        "version_normalized": "1.0.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/easy-swoole/sync-invoker.git",
+            "reference": "67f5628de957606fa4e4609aa7da87919ea652ba"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/easy-swoole/sync-invoker/zipball/67f5628de957606fa4e4609aa7da87919ea652ba",
+            "reference": "67f5628de957606fa4e4609aa7da87919ea652ba",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "easyswoole/component": "^2.0",
+            "ext-swoole": "^4.4.5",
+            "php": ">=7.1.0"
+        },
+        "require-dev": {
+            "easyswoole/swoole-ide-helper": "^1.0"
+        },
+        "time": "2019-10-15T14:05:47+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "EasySwoole\\SyncInvoker\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "YF",
+                "email": "291323003@qq.com"
+            }
+        ],
+        "description": "An efficient swoole framework",
+        "homepage": "https://www.easyswoole.com/",
+        "keywords": [
+            "async",
+            "easyswoole",
+            "framework",
+            "swoole"
+        ]
+    },
+    {
         "name": "easyswoole/task",
         "version": "1.1.1",
         "version_normalized": "1.1.1.0",

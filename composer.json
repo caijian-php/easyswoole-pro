@@ -12,7 +12,9 @@
         "easyswoole/orm": "^1.4",
         "easyswoole/redis-pool": "^2.1.2",
         "easyswoole/jwt": "^1.1",
-        "easyswoole/phpunit": "^1.0"
+        "easyswoole/phpunit": "^1.0",
+        "easyswoole/sync-invoker": "^1.0",
+        "easyswoole/component": "^2.2"
     },
     "autoload": {
         "psr-4": {
@@ -25,6 +27,12 @@
     "autoload-dev": {
         "psr-4": {
             "Test\\": "./tests/"
+        }
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer"
         }
     }
 }

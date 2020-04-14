@@ -2,6 +2,8 @@
 namespace EasySwoole\EasySwoole;
 
 
+use App\Sync\Driver\DemoDriver;
+use App\Sync\Invoker\DemoInvoker;
 use EasySwoole\EasySwoole\Command\Utility;
 use EasySwoole\EasySwoole\Swoole\EventRegister;
 use EasySwoole\EasySwoole\AbstractInterface\Event;
@@ -25,6 +27,7 @@ class EasySwooleEvent implements Event
     public static function mainServerCreate(EventRegister $register)
     {
         echo Utility::displayItem('mainServerCreating','EasySwooleEvent mainServerCreating'.PHP_EOL);
+        DemoInvoker::getInstance(new DemoDriver())->attachServer(ServerManager::getInstance()->getSwooleServer());
     }
 
     public static function onRequest(Request $request, Response $response): bool

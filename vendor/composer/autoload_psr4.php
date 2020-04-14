@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'phpDocumentor\\Reflection\\' => array($vendorDir . '/phpdocumentor/reflection-common/src', $vendorDir . '/phpdocumentor/reflection-docblock/src', $vendorDir . '/phpdocumentor/type-resolver/src'),
     'Webmozart\\Assert\\' => array($vendorDir . '/webmozart/assert/src'),
+    'Test\\' => array($baseDir . '/tests'),
     'Symfony\\Polyfill\\Util\\' => array($vendorDir . '/symfony/polyfill-util'),
     'Symfony\\Polyfill\\Php56\\' => array($vendorDir . '/symfony/polyfill-php56'),
     'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
@@ -22,6 +23,7 @@ return array(
     'EasySwoole\\Utility\\' => array($vendorDir . '/easyswoole/utility/src'),
     'EasySwoole\\Trigger\\' => array($vendorDir . '/easyswoole/trigger/src'),
     'EasySwoole\\Task\\' => array($vendorDir . '/easyswoole/task/src'),
+    'EasySwoole\\SyncInvoker\\' => array($vendorDir . '/easyswoole/sync-invoker/src'),
     'EasySwoole\\Spl\\Test\\' => array($vendorDir . '/easyswoole/spl/test'),
     'EasySwoole\\Spl\\' => array($vendorDir . '/easyswoole/spl/src'),
     'EasySwoole\\Session\\Test\\' => array($vendorDir . '/easyswoole/session/tests'),
