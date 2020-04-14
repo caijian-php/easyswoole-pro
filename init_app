@@ -1,0 +1,20 @@
+#!/usr/bin/env php
+<?php
+     require 'vendor/autoload.php';
+    use EasySwoole\Utility\File;
+
+    clearstatcache();
+    $destination = 'env.php';
+    $source = 'env.example';
+    $replace = true;
+    if (is_file($destination)) {
+        $filename = basename($destination);
+        echo "{$filename} has already existed, do you want to replace it? [ Y / N (default) ] : ";
+        $answer = strtolower(trim(strtoupper(fgets(STDIN))));
+        if (! in_array($answer, ['y', 'yes'])) {
+            $replace = false;
+        }
+    }
+    if ($replace) {
+        File::copyFile($source, $destination);
+    }

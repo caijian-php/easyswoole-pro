@@ -8,7 +8,7 @@ namespace App\Rpc\Client;
  * @package App\Client\RPC
  * @method hello() @return string
  */
-class Demo extends Base
+class DemoClient extends Base
 {
     protected $uri = '/demo/';
 }

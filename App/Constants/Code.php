@@ -4,7 +4,7 @@
 namespace App\Constants;
 
 
-class Business
+class Code
 {
     const OK = ['code'=>0, 'msg'=>'ok'];
 }
