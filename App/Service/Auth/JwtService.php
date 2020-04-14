@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Service\Auth;
+
 use EasySwoole\Jwt\Jwt;
 
 class JwtService implements AuthInterface
@@ -10,11 +12,11 @@ class JwtService implements AuthInterface
 
     protected $encryptionMode = 'HMACSHA256';
 
-    protected $expireTime = 3600;
+    protected $expireTime = 31536000;
 
     public function set($id,$expireTime=0)
     {
-        $expireTime = $expireTime ?? $this->expireTime;
+        $expireTime = $expireTime!=0 ? $expireTime : $this->expireTime;
         $jwtObject = Jwt::getInstance()
             ->setSecretKey($this->key) // 秘钥
             ->publish();

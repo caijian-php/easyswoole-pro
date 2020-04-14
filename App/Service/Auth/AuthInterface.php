@@ -1,6 +1,6 @@
 <?php
 
-use EasySwoole\Jwt\Jwt;
+namespace App\Service\Auth;
 
 Interface AuthInterface
 {
