@@ -17,7 +17,6 @@ class EasySwooleEvent implements Event
 {
     public static function initialize()
     {
-        date_default_timezone_set('Asia/Shanghai');
         echo Utility::displayItem('initializing','EasySwooleEvent initializing'.PHP_EOL);
         self::optimumConfig();
         self::loadConfigFile();

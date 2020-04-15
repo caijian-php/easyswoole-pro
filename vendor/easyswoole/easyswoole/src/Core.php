@@ -277,7 +277,6 @@ class Core
                 }
             }
 
-            require EASYSWOOLE_ROOT.'/WorkStartEvent.php';
             WorkStartEvent::run();
         });
 
