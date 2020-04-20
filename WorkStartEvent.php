@@ -16,6 +16,7 @@ class WorkStartEvent
 
     public static function run(){
         Logger::getInstance()->console(posix_getpid().'启动于'.date('Y-m-d H:i:s'));
+        Config::getInstance()->merge(array_merge(self::loadConfigFile(),self::loadConfigModel()));
         require EASYSWOOLE_ROOT.'/App/Helper/Functions.php';
     }
 
@@ -49,4 +50,9 @@ class WorkStartEvent
             'request' => getContext('request')
         ],'request');
     }
+
+    static function loadConfigFile():array
+    {}
+    static function loadConfigModel():array
+    {}
 }

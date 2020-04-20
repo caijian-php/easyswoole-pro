@@ -22,6 +22,7 @@ return array(
     'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
     'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
     'FastRoute\\' => array($vendorDir . '/nikic/fast-route/src'),
+    'EasySwoole\\WordsMatch\\' => array($vendorDir . '/easyswoole/words-match/src'),
     'EasySwoole\\Validate\\' => array($vendorDir . '/easyswoole/validate/src'),
     'EasySwoole\\Utility\\' => array($vendorDir . '/easyswoole/utility/src'),
     'EasySwoole\\Trigger\\' => array($vendorDir . '/easyswoole/trigger/src'),

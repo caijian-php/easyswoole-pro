@@ -11,6 +11,7 @@ use EasySwoole\Http\Request;
 use EasySwoole\Http\Response;
 use EasySwoole\ORM\Db\Connection;
 use EasySwoole\ORM\DbManager;
+use EasySwoole\WordsMatch\WordsMatchServer;
 use Symfony\Component\Finder\Finder;
 
 class EasySwooleEvent implements Event
@@ -26,7 +27,8 @@ class EasySwooleEvent implements Event
     public static function mainServerCreate(EventRegister $register)
     {
         echo Utility::displayItem('mainServerCreating','EasySwooleEvent mainServerCreating'.PHP_EOL);
-        DemoInvoker::getInstance(new DemoDriver())->setWorkerNum(2)->attachServer(ServerManager::getInstance()->getSwooleServer());
+        self::attachInvokerServer();
+        self::attachWordsMatchServer();
     }
 
     public static function onRequest(Request $request, Response $response): bool
@@ -38,13 +40,29 @@ class EasySwooleEvent implements Event
     {
     }
 
-    protected static function registerService()
+    static function attachInvokerServer(){
+        DemoInvoker::getInstance(new DemoDriver())->setWorkerNum(2)->attachServer(ServerManager::getInstance()->getSwooleServer());
+    }
+
+    static function attachWordsMatchServer(){
+        WordsMatchServer::getInstance()
+            ->setMaxMem('512M') // 每个进程最大内存
+            ->setProcessNum(5) // 设置进程数量
+            ->setServerName(config('SERVER_NAME').'-WordsMatch')// 服务名称
+            ->setTempDir(EASYSWOOLE_TEMP_DIR)// temp地址
+            ->setWordsMatchPath(EASYSWOOLE_ROOT.'/WordsMatch/')
+            ->setDefaultWordBank('SensitiveWords.txt')// 服务启动时默认导入的词库文件路径
+            ->setSeparator(',')// 词和其它信息分隔符
+            ->attachToServer(ServerManager::getInstance()->getSwooleServer());
+    }
+
+    static function registerService()
     {
         self::registerMysql();
         self::registerRedis();
     }
 
-    protected static function registerRedis(){
+    static function registerRedis(){
         try{
             $configs = config('redis');
             foreach ($configs as $connection => $config){
@@ -68,7 +86,7 @@ class EasySwooleEvent implements Event
         }
     }
 
-    protected static function registerMysql()
+    static function registerMysql()
     {
         try{
             $configs = config('database');
@@ -96,7 +114,7 @@ class EasySwooleEvent implements Event
         }
     }
 
-    protected static function loadConfigFile(){
+    static function loadConfigFile(){
         $configs = [];
         $commonPaths = EASYSWOOLE_ROOT.'/config/common';
         $envPaths = EASYSWOOLE_ROOT.'/config/'.config('ENV');
@@ -111,7 +129,7 @@ class EasySwooleEvent implements Event
         Config::getInstance()->merge($configs);
     }
 
-    protected static function optimumConfig()
+    static function optimumConfig()
     {
         $out = intval(shell_exec('cat /proc/cpuinfo |grep processor|wc -l'));
         $config = Config::getInstance();

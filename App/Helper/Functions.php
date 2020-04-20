@@ -5,7 +5,7 @@ use Swoole\Coroutine as co;
 
 if (! function_exists('dump')) {
     function dump($data){
-        Logger::getInstance()->console($data);
+        Logger::getInstance()->console(var_export($data));
     }
 }
 

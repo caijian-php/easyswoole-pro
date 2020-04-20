@@ -62,6 +62,7 @@ class ComposerStaticInit313e46d61265b0f37f96ca4eb9e9a356
         ),
         'E' => 
         array (
+            'EasySwoole\\WordsMatch\\' => 22,
             'EasySwoole\\Validate\\' => 20,
             'EasySwoole\\Utility\\' => 19,
             'EasySwoole\\Trigger\\' => 19,
@@ -171,6 +172,10 @@ class ComposerStaticInit313e46d61265b0f37f96ca4eb9e9a356
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
+        ),
+        'EasySwoole\\WordsMatch\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/words-match/src',
         ),
         'EasySwoole\\Validate\\' => 
         array (
