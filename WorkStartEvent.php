@@ -51,8 +51,12 @@ class WorkStartEvent
         ],'request');
     }
 
-    static function loadConfigFile():array
-    {}
-    static function loadConfigModel():array
-    {}
+    static function loadConfigFile():?array
+    {
+        return [];
+    }
+    static function loadConfigModel():?array
+    {
+        return [];
+    }
 }

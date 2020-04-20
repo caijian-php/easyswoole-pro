@@ -12,6 +12,6 @@ use PHPUnit\Framework\TestCase;
 class SyncTest extends TestCase
 {
     function testCon(){
-
+        // Server没有启动的都无法调用，此处仅作展示
     }
 }
