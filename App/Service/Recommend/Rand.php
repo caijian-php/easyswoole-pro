@@ -21,11 +21,11 @@ class Rand implements RecommendInterface
     private $del = \App\Constants\Recommend\Rand::DEL;
 
     public function add($key){
-        return StorageClient::getStorage()->sAdd($this->all, getMicroTime(),$key);
+        return StorageClient::getStorage()->sAdd($this->all, ...$key);
     }
 
     public function del($id, ...$key){
-        return StorageClient::getStorage()->sAdd($this->del.$id, getMicroTime(), ...$key);
+        return StorageClient::getStorage()->sAdd($this->del.$id, ...$key);
     }
 
     public function get($repository,$limit=5){
@@ -42,8 +42,8 @@ class Rand implements RecommendInterface
         return $list;
     }
 
-    // select all for add 初始化一个全集合
-    public function init(){
-
+    public function init($list){
+        $keys = array_column($list,'id');
+        return $this->add($keys);
     }
 }
