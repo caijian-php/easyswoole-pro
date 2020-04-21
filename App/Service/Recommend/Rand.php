@@ -30,8 +30,8 @@ class Rand implements RecommendInterface
 
     public function get($id,$limit=5,$time=1){
         $tryTime = 0;
-        begin:
         try{
+            begin:
             if ($tryTime > $time) {
                 throw new \Exception('总仓库为空');
             }
