@@ -1,6 +1,8 @@
 <?php
 
 use EasySwoole\EasySwoole\Logger;
+use EasySwoole\Mysqli\QueryBuilder;
+use EasySwoole\ORM\DbManager;
 use Swoole\Coroutine as co;
 
 if (! function_exists('dump')) {
@@ -112,6 +114,14 @@ if (! function_exists('getRealDay')) {
             $realDay = $day;
         }
         return $realDay;
+    }
+}
+
+if (!function_exists('rawSql')){
+    function rawSql($sql,$params=[],$connectionName='master') {
+        $queryBuild = new QueryBuilder();
+        $queryBuild->raw($sql, $params);
+        return DbManager::getInstance()->query($queryBuild, true, $connectionName);
     }
 }
 
