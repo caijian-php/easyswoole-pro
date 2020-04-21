@@ -9,10 +9,16 @@ use EasySwoole\RedisPool\Redis;
 class StorageClient
 {
     static function getStorage($storage='redis',$name='master'){
-        switch ($storage) {
-            case 'redis':
-                return Redis::defer($name);
+        try{
+            switch ($storage) {
+                case 'redis':
+                    return Redis::defer($name);
+                case 'els': // ElasticSearch
+                    return null;
+            }
+            throw new \Exception('缺少该类型');
+        }catch (\Throwable $e){
+
         }
-        return null;
     }
 }
