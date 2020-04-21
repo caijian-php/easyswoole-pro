@@ -28,12 +28,22 @@ class Rand implements RecommendInterface
         return StorageClient::getStorage()->sAdd($this->del.$id, ...$key);
     }
 
-    public function get($repository,$limit=5){
+    public function get($id,$limit=5,$time=1){
+        $tryTime = 0;
+        begin:
         try{
+            if ($tryTime > $time) {
+                throw new \Exception('总仓库为空');
+            }
             StorageClient::getStorage()->multi();
-            StorageClient::getStorage()->sDiffStore($this->get . $repository, $this->all, $this->del . $repository);
-            $list = StorageClient::getStorage()->sRandMember($this->get . $repository, $limit);
-            $this->del($repository,$list);
+            StorageClient::getStorage()->sDiffStore($this->get . $id, $this->all, $this->del . $id);
+            $list = StorageClient::getStorage()->sRandMember($this->get . $id, $limit);
+            if (empty($list)) {
+                $this->flushDel($id);
+                $tryTime++;
+                goto begin;
+            }
+            $this->del($id,$list);
             StorageClient::getStorage()->exec();
         }catch (\Throwable $e){
             // 自行处理异常
@@ -45,5 +55,9 @@ class Rand implements RecommendInterface
     public function init($list){
         $keys = array_column($list,'id');
         return $this->add($keys);
+    }
+
+    public function flushDel($id){
+        return StorageClient::getStorage()->del($this->del.$id);
     }
 }
