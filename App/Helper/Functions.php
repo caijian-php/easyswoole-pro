@@ -118,6 +118,15 @@ if (! function_exists('getRealDay')) {
 }
 
 if (!function_exists('rawSql')){
+    /**
+     * 可以对结果直接getResult或者使用BaseModel的pagination等等
+     * @param $sql
+     * @param array $params
+     * @param string $connectionName
+     * @return \EasySwoole\ORM\Db\Result
+     * @throws Throwable
+     * @throws \EasySwoole\ORM\Exception\Exception
+     */
     function rawSql($sql,$params=[],$connectionName='master') {
         $queryBuild = new QueryBuilder();
         $queryBuild->raw($sql, $params);
