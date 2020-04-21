@@ -1,9 +1,10 @@
 <?php
 
 
-namespace App\Service\Recommend;
+namespace App\Service\Recommend\Rand;
 
 
+use App\Service\Recommend\RecommendInterface;
 use App\Storage\StorageClient;
 
 /**
@@ -14,11 +15,11 @@ use App\Storage\StorageClient;
  */
 class Rand implements RecommendInterface
 {
-    private $all = \App\Constants\Recommend\Rand::REPOSITORY;
+    private $all = Params::REPOSITORY;
 
-    private $get = \App\Constants\Recommend\Rand::GET;
+    private $get = Params::GET;
 
-    private $del = \App\Constants\Recommend\Rand::DEL;
+    private $del = Params::DEL;
 
     public function add($key){
         return StorageClient::getStorage()->sAdd($this->all, ...$key);

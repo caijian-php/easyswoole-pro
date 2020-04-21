@@ -1,10 +1,10 @@
 <?php
 
 
-namespace App\Constants\Recommend;
+namespace App\Service\Recommend\Order;
 
 
-class Order
+class Params
 {
     const REPOSITORY='order_repository:'; // content
 

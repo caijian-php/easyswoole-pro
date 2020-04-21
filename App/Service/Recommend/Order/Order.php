@@ -1,9 +1,10 @@
 <?php
 
 
-namespace App\Service\Recommend;
+namespace App\Service\Recommend\Order;
 
 
+use App\Service\Recommend\RecommendInterface;
 use App\Storage\StorageClient;
 
 /**
@@ -14,9 +15,9 @@ use App\Storage\StorageClient;
  */
 class Order implements RecommendInterface
 {
-    private $repository = \App\Constants\Recommend\Order::REPOSITORY;
+    private $repository = Params::REPOSITORY;
 
-    private $timeline = \App\Constants\Recommend\Order::REPOSITORY_TIMELINE;
+    private $timeline = Params::REPOSITORY_TIMELINE;
 
     public function add($id,$fields=[])
     {

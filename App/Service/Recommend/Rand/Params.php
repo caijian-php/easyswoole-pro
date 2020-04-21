@@ -1,10 +1,10 @@
 <?php
 
 
-namespace App\Constants\Recommend;
+namespace App\Service\Recommend\Rand;
 
 
-class Rand
+class Params
 {
     const REPOSITORY='rand_repository'; // all
 
