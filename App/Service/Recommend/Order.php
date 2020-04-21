@@ -14,15 +14,19 @@ use App\Storage\StorageClient;
  */
 class Order implements RecommendInterface
 {
-    public function add($repository,$fields=[])
+    private $repository = \App\Constants\Recommend\Order::REPOSITORY;
+
+    private $timeline = \App\Constants\Recommend\Order::REPOSITORY_TIMELINE;
+
+    public function add($id,$fields=[])
     {
         try{
             if (empty($fields)) {
                 throw new \Exception('fields不能为空');
             }
             StorageClient::getStorage()->multi();
-            StorageClient::getStorage()->hmset(\App\Constants\Recommend\Order::REPOSITORY.$repository,$fields);
-            StorageClient::getStorage()->zAdd(\App\Constants\Recommend\Order::REPOSITORY_TIMELINE,getMicroTime(),$repository);
+            StorageClient::getStorage()->hmset($this->repository.$id, $fields);
+            StorageClient::getStorage()->zAdd($this->timeline, getMicroTime(), $id);
             StorageClient::getStorage()->exec();
         }catch (\Throwable $e){
             // 自行处理异常
@@ -31,19 +35,19 @@ class Order implements RecommendInterface
         return true;
     }
 
-    public function get($repository, $limit,$page=1)
+    public function get($id, $limit,$page=1)
     {
         $start = ($page-1)*$limit;
         $stop = $page*$limit;
-        return StorageClient::getStorage()->zRevRange(\App\Constants\Recommend\Order::REPOSITORY.$repository,$start,$stop);
+        return StorageClient::getStorage()->zRevRange($this->repository.$id,$start,$stop);
     }
 
-    public function del($repository)
+    public function del($id)
     {
         try{
             StorageClient::getStorage()->multi();
-            StorageClient::getStorage()->del(\App\Constants\Recommend\Order::REPOSITORY.$repository);
-            StorageClient::getStorage()->zRem(\App\Constants\Recommend\Order::REPOSITORY_TIMELINE, $repository);
+            StorageClient::getStorage()->del($this->repository.$id);
+            StorageClient::getStorage()->zRem($this->timeline, $id);
             StorageClient::getStorage()->exec();
         }catch (\Throwable $e){
             // 自行处理异常

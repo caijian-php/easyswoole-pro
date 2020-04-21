@@ -14,20 +14,25 @@ use App\Storage\StorageClient;
  */
 class Rand implements RecommendInterface
 {
+    private $all = \App\Constants\Recommend\Rand::REPOSITORY;
+
+    private $get = \App\Constants\Recommend\Rand::GET;
+
+    private $del = \App\Constants\Recommend\Rand::DEL;
+
     public function add($key){
-        return StorageClient::getStorage()->sAdd(\App\Constants\Recommend\Rand::REPOSITORY, getMicroTime(),$key);
+        return StorageClient::getStorage()->sAdd($this->all, getMicroTime(),$key);
     }
 
-    public function del($repository,...$key){
-        return StorageClient::getStorage()->sAdd(\App\Constants\Recommend\Rand::DEL.$repository, getMicroTime(), ...$key);
+    public function del($id, ...$key){
+        return StorageClient::getStorage()->sAdd($this->del.$id, getMicroTime(), ...$key);
     }
 
     public function get($repository,$limit=5){
         try{
             StorageClient::getStorage()->multi();
-            $getRepository = \App\Constants\Recommend\Rand::GET.$repository;
-            StorageClient::getStorage()->sDiffStore($getRepository,\App\Constants\Recommend\Rand::REPOSITORY,\App\Constants\Recommend\Rand::DEL.$repository);
-            $list = StorageClient::getStorage()->sRandMember($getRepository,$limit);
+            StorageClient::getStorage()->sDiffStore($this->get . $repository, $this->all, $this->del . $repository);
+            $list = StorageClient::getStorage()->sRandMember($this->get . $repository, $limit);
             $this->del($repository,$list);
             StorageClient::getStorage()->exec();
         }catch (\Throwable $e){
