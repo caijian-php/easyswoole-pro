@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Utility;
+namespace App\Storage;
 
 
 class RedisClient

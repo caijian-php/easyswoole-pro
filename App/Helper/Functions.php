@@ -9,6 +9,13 @@ if (! function_exists('dump')) {
     }
 }
 
+if (! function_exists('getMicroTime')) {
+    function getMicroTime(){
+        $tmp = explode(' ',microtime());
+        return ($tmp[1] + round($tmp[0],3))*1000;
+    }
+}
+
 if (! function_exists('formatTime')) {
     function formatTime($startTime, $endTime){
         $diffTime = substr($endTime,0,10)  - substr($startTime,0,10);
