@@ -9,6 +9,11 @@ use EasySwoole\Validate\Validate;
 
 class Auth extends ApiBase
 {
+    protected $notAuth = [
+        '/user/auth/smsCode',
+        '/user/auth/smsLogin',
+    ];
+
     protected function validateRule(?string $action): ?Validate
     {
         $v = new Validate();
