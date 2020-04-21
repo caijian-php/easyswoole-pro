@@ -4,7 +4,7 @@
 namespace App\Service\Recommend;
 
 
-use App\Service\StorageService;
+use App\Storage\StorageClient;
 
 /**
  * 实现随机推荐不重复内容
@@ -15,21 +15,21 @@ use App\Service\StorageService;
 class Rand implements RecommendInterface
 {
     public function add($key){
-        return StorageService::getStorage()->sAdd(\App\Constants\Recommend\Rand::REPOSITORY, getMicroTime(),$key);
+        return StorageClient::getStorage()->sAdd(\App\Constants\Recommend\Rand::REPOSITORY, getMicroTime(),$key);
     }
 
     public function del($repository,...$key){
-        return StorageService::getStorage()->sAdd(\App\Constants\Recommend\Rand::DEL.$repository, getMicroTime(), ...$key);
+        return StorageClient::getStorage()->sAdd(\App\Constants\Recommend\Rand::DEL.$repository, getMicroTime(), ...$key);
     }
 
     public function get($repository,$limit=5){
         try{
-            StorageService::getStorage()->multi();
+            StorageClient::getStorage()->multi();
             $getRepository = \App\Constants\Recommend\Rand::GET.$repository;
-            StorageService::getStorage()->sDiffStore($getRepository,\App\Constants\Recommend\Rand::REPOSITORY,\App\Constants\Recommend\Rand::DEL.$repository);
-            $list = StorageService::getStorage()->sRandMember($getRepository,$limit);
+            StorageClient::getStorage()->sDiffStore($getRepository,\App\Constants\Recommend\Rand::REPOSITORY,\App\Constants\Recommend\Rand::DEL.$repository);
+            $list = StorageClient::getStorage()->sRandMember($getRepository,$limit);
             $this->del($repository,$list);
-            StorageService::getStorage()->exec();
+            StorageClient::getStorage()->exec();
         }catch (\Throwable $e){
             return false;
         }

@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Service;
+namespace App\Storage;
 
 
 use EasySwoole\RedisPool\Redis;
 
-class StorageService
+class StorageClient
 {
     static function getStorage($storage='redis',$name='master'){
         switch ($storage) {
