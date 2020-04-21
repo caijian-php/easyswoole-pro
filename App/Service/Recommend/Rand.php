@@ -31,6 +31,7 @@ class Rand implements RecommendInterface
             $this->del($repository,$list);
             StorageClient::getStorage()->exec();
         }catch (\Throwable $e){
+            // 自行处理异常
             return false;
         }
         return $list;

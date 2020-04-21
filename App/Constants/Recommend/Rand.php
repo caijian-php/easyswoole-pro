@@ -6,9 +6,9 @@ namespace App\Constants\Recommend;
 
 class Rand
 {
-    const REPOSITORY='repository'; // all
+    const REPOSITORY='rand_repository'; // all
 
-    const DEL='repository_del:'; // del
+    const DEL='rand_repository_del:'; // del
 
-    const GET='repository_get:'; // get
+    const GET='rand_repository_get:'; // get
 }

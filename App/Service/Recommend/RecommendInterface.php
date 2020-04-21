@@ -8,7 +8,8 @@ Interface RecommendInterface
 {
     public function add($repository);
 
-    public function del($repository,...$key);
-
     public function get($repository,$limit);
+
+    public function del($repository);
+
 }
