@@ -10,5 +10,9 @@
     if (empty($args)){
 	    echo shell_exec("./vendor/bin/co-phpunit ./tests");
     }else{
+        list($params0,$params1) = $args;
+        if ($params1 == '-f') {
+            $args[1] = '--filter'; // alias -f='--filter' 例如执行 php test ./tests -f Id
+        }
         echo shell_exec("./vendor/bin/co-phpunit ".implode(" ",$args));
     }
