@@ -75,6 +75,47 @@ if (! function_exists('fileGets')) {
     }
 }
 
+if (! function_exists('coRequest')) {
+    function coRequest($url, $params = [], $timeout = 5, $headers = [])
+    {
+        $info = parse_url($url);
+        if ($info['scheme'] == 'https') {
+            $cli = new co\Http\Client($info['host'], 443, true);
+        } else {
+            $cli = new co\Http\Client($info['host']);
+        }
+        $cli->set(['timeout' =>$timeout]);
+
+        $h = [];
+        foreach ($headers as $key => $value) {
+            $tmp        = explode(':', $value);
+            if(count($tmp) == 2){
+                $h[$tmp[0]] = $tmp[1];
+            }else{
+                $h[$key] = $value;
+            }
+        }
+        if(empty($h)){
+            $h['Content-Type'] = 'application/x-www-form-urlencoded';
+        }
+        $cli->setHeaders($h);
+        $path = $info['path'] . (empty($info['query']) ? '' : '?' . $info['query']);
+        if ($params) {
+            $cli->post($path, $params);
+        } else {
+            $cli->get($path);
+        }
+        $result = [
+            'code'      => $cli->getStatusCode(),
+            'errorCode' => swoole_strerror($cli->errCode),
+            'body'      => $cli->getBody(),
+        ];
+        $cli->close();
+
+        return $result;
+    }
+}
+
 if (! function_exists('toLog')) {
     function toLog($info,$fileName = '')
     {
