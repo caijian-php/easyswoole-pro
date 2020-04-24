@@ -54,9 +54,11 @@ class IdVerifyService
             ->asDefaultClient();
     }
 
-    public function DescribeVerifyToken(){
+    public function DescribeVerifyToken($data){
         $data = [
             'BizId' => $this->guid(),
+            'Name'=> $data['Name'],
+            'IdCardNumber'=> $data['IdCardNumber'],
         ];
         return $this->verify('DescribeVerifyToken',$data);
     }

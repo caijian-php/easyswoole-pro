@@ -4,6 +4,8 @@
 namespace App\Service\IdentifyCard;
 
 
+use App\Traits\CoroutineSingleTon;
+
 Trait IdentifyCard
 {
     /**
