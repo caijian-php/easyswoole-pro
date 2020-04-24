@@ -5,6 +5,7 @@ namespace EasySwoole\EasySwoole;
 use App\Sync\Driver\DemoDriver;
 use App\Sync\Invoker\DemoInvoker;
 use EasySwoole\EasySwoole\Command\Utility;
+use EasySwoole\EasySwoole\Crontab\Crontab;
 use EasySwoole\EasySwoole\Swoole\EventRegister;
 use EasySwoole\EasySwoole\AbstractInterface\Event;
 use EasySwoole\Http\Request;
@@ -29,6 +30,7 @@ class EasySwooleEvent implements Event
         echo Utility::displayItem('mainServerCreating','EasySwooleEvent mainServerCreating'.PHP_EOL);
         self::attachInvokerServer();
         self::attachWordsMatchServer();
+        self::addCrontabTask();
     }
 
     public static function onRequest(Request $request, Response $response): bool
@@ -38,6 +40,14 @@ class EasySwooleEvent implements Event
 
     public static function afterRequest(Request $request, Response $response): void
     {
+    }
+
+    static function addCrontabTask(){
+        $tasks = require EASYSWOOLE_ROOT . '/App/Crontab/config.php';
+        foreach ($tasks as $taskClass){
+            Crontab::getInstance()->addTask($taskClass);
+        }
+        return true;
     }
 
     static function attachInvokerServer(){

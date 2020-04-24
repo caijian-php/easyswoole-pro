@@ -4,7 +4,7 @@
 namespace App\Service\IdentifyCard;
 
 
-class IdentifyCard
+Trait IdentifyCard
 {
     /**
      * 校验身份证号是否合法

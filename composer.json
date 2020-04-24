@@ -16,7 +16,8 @@
         "easyswoole/sync-invoker": "^1.0",
         "easyswoole/component": "^2.2",
         "guzzlehttp/guzzle": "^6.5",
-        "easyswoole/words-match": "^1.0"
+        "easyswoole/words-match": "^1.0",
+        "alibabacloud/sdk": "^1.8"
     },
     "autoload": {
         "psr-4": {
