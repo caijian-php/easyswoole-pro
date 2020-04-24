@@ -10,7 +10,7 @@ use AlibabaCloud\Client\Exception\ServerException;
 use App\Service\IdentifyCard\IdentifyCard;
 use EasySwoole\Component\CoroutineSingleTon;
 
-class IdAuthService
+class IdVerifyService
 {
     use CoroutineSingleTon;
 
@@ -24,9 +24,9 @@ class IdAuthService
 
     protected $version = '2019-03-07';
 
-    protected $product = '等Ta实人认证';
+    protected $product;
 
-    protected $bizType = 'dengta';
+    protected $bizType;
 
     protected $describeVerifyResult = [
         -1 => '未认证：客户端未成功提交',
@@ -47,6 +47,8 @@ class IdAuthService
     public function __construct()
     {
         $access = config('AliVerify');
+        $this->product = $access['product'];
+        $this->bizType = $access['bizType'];
         AlibabaCloud::accessKeyClient($access['accessKeyId'], $access['accessSecret'])
             ->regionId($this->regionId)
             ->asDefaultClient();
