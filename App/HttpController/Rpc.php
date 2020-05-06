@@ -7,7 +7,7 @@ namespace App\HttpController;
 use EasySwoole\Http\Message\Status;
 use Swoole\Exception;
 
-class Rpc extends Base
+class Rpc extends Controller
 {
     protected $key = 'pro';
 

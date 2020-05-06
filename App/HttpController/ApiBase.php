@@ -7,7 +7,7 @@ namespace App\HttpController;
 use EasySwoole\Http\Message\Status;
 use EasySwoole\Validate\Validate;
 
-class ApiBase extends Base
+class ApiBase extends Controller
 {
     protected $notAuth = [
         '/'

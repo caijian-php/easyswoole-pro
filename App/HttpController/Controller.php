@@ -9,11 +9,14 @@
 namespace App\HttpController;
 
 
+use App\Traits\Params;
 use EasySwoole\EasySwoole\Logger;
 use EasySwoole\EasySwoole\WorkStartEvent;
 
-abstract class Base extends \EasySwoole\Http\AbstractInterface\Controller
+abstract class Controller extends \EasySwoole\Http\AbstractInterface\Controller
 {
+    use Params;
+
     /**
      * @var Logger
      */
@@ -22,6 +25,18 @@ abstract class Base extends \EasySwoole\Http\AbstractInterface\Controller
     public function index()
     {
         // TODO: Implement index() method.
+    }
+
+    /**
+     * 获取参数|可选择默认值|可选择过滤方式
+     * @param $name
+     * @param string $default
+     * @param string $filter
+     * @return mixed
+     */
+    protected function getParams($name,$default='',$filter=''){
+        $data = $this->request()->getRequestParam();
+        return $this->input($data, $name, $default, $filter);
     }
 
     protected function onRequest(?string $action): ?bool
@@ -47,4 +62,5 @@ abstract class Base extends \EasySwoole\Http\AbstractInterface\Controller
         $message .= "\n[error]".$throwable;
         Logger::getInstance()->error($message);
     }
+
 }
