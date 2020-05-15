@@ -24,6 +24,11 @@ class WorkStartEvent
     {
         setContext('runTime',microtime(true));
 
+        $response->withHeader('Access-Control-Allow-Origin', '*');
+        $response->withHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+        $response->withHeader('Access-Control-Allow-Credentials', 'true');
+        $response->withHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
+
         $raw = $request->getSwooleRequest()->rawContent();
         $data = (array)json_decode($raw,true);
         $data AND $request->withParsedBody($data);
