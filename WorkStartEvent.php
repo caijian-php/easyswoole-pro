@@ -2,6 +2,7 @@
 
 namespace EasySwoole\EasySwoole;
 
+use EasySwoole\Http\Message\Status;
 use EasySwoole\Http\Request;
 use EasySwoole\Http\Response;
 use Swoole\Coroutine as co;
@@ -28,6 +29,10 @@ class WorkStartEvent
         $response->withHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
         $response->withHeader('Access-Control-Allow-Credentials', 'true');
         $response->withHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
+        if ($request->getMethod() === 'OPTIONS') {
+            $response->withStatus(Status::CODE_OK);
+            return false;
+        }
 
         $raw = $request->getSwooleRequest()->rawContent();
         $data = (array)json_decode($raw,true);
