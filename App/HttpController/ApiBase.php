@@ -116,6 +116,13 @@ class ApiBase extends Controller
         $this->error('服务器错误',Status::CODE_INTERNAL_SERVER_ERROR,[],Status::CODE_INTERNAL_SERVER_ERROR);
     }
 
+    /**
+     * 或者使用 Params类的input()
+     * @param string $key
+     * @param string $filter
+     * @param bool $default
+     * @return array|bool|float|int|mixed|string|null
+     */
     protected function getRequest($key = '', $filter = '', $default = false)
     {
         if (empty($key)) {
