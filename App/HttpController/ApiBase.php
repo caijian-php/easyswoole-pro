@@ -115,4 +115,35 @@ class ApiBase extends Controller
         parent::onException($throwable);
         $this->error('服务器错误',Status::CODE_INTERNAL_SERVER_ERROR,[],Status::CODE_INTERNAL_SERVER_ERROR);
     }
+
+    protected function getRequest($key = '', $filter = '', $default = false)
+    {
+        if (empty($key)) {
+            return $this->request()->getRequestParam();
+        }
+
+        $data = $this->request()->getRequestParam($key);
+        if ($data === null && $default !== false) {
+            $data = $default;
+        }
+        if ($filter == 'int') {
+            $data = intval($data);
+        } elseif ($filter == 'float') {
+            $data = floatval($data);
+        } elseif ($filter == 'bool') {
+            $data = boolval($data);
+        } elseif ($filter == 'array') {
+            $data = (array)$data;
+        } else {
+            if (is_scalar($data)) {
+                $data = (string)$data;
+            }
+        }
+
+        if ($default == 'abs' && (is_float($data) || is_int($data))) {
+            $data = abs($data);
+        }
+
+        return $data;
+    }
 }
