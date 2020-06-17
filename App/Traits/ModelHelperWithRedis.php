@@ -29,10 +29,10 @@ Trait ModelHelperWithRedis
         $date = date("Y-m-d");
         $list = $redis->get($key.$date);
         if ($list) {
-            return json_de($list);
+            return deJson($list);
         }
         $list = $this->getList() ?? [];
-        $redis->set($key.$date, json_en($list));
+        $redis->set($key.$date, enJson($list));
         $redis->expire($key.$date,$expire);
 
         return $list;

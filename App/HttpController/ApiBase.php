@@ -55,7 +55,7 @@ class ApiBase extends Controller
             "run_time"      => microtime(true) - getContext('runTime')
         ];
 
-        $this->response()->write(json_en($data));
+        $this->response()->write(enJson($data));
         $this->response()->withHeader('Content-type', 'application/json;charset=utf-8');
         $this->response()->withHeader('Access-Control-Allow-Origin','*');
         $this->response()->withStatus(Status::CODE_OK);
@@ -85,7 +85,7 @@ class ApiBase extends Controller
             "run_time"      => microtime(true) - getContext('runTime')
         ];
 
-        $this->response()->write(json_en($data));
+        $this->response()->write(enJson($data));
         $this->response()->withHeader('Content-type', 'application/json;charset=utf-8');
         $this->response()->withHeader('Access-Control-Allow-Origin','*');
         $this->response()->withStatus($httpCode);
