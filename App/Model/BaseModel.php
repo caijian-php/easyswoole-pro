@@ -4,11 +4,16 @@
 namespace App\Model;
 
 
+use App\Traits\ModelHelperWithRedis;
 use EasySwoole\ORM\AbstractModel;
 
 class BaseModel extends AbstractModel
 {
+    use ModelHelperWithRedis;
+
     protected $connectionName = 'master';
+
+    protected $tableName;
 
     /**
      * @param int $page
@@ -28,4 +33,9 @@ class BaseModel extends AbstractModel
             'list'=>$list,
         ];
     }
+
+
+
+
+
 }

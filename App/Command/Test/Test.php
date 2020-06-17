@@ -1,14 +1,14 @@
 <?php
 
 
-namespace App\Command\Demo;
+namespace App\Command\Test;
 
 
 use App\Command\CommandBase;
 
-class Demo extends CommandBase
+class Test extends CommandBase
 {
-    protected $commandName='demo';
+    protected $commandName='test';
 
     public function handle($args){
         echo 'handle something with args: ';

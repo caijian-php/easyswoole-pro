@@ -1,4 +1,4 @@
 <?php
     return [
-        \App\Command\Demo\Demo::class,
+        \App\Command\Demo\Test::class,
     ];
