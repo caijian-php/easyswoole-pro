@@ -42,19 +42,32 @@ if (! function_exists('enJson')) {
     function enJson($data)
     {
         if (!$data){
-            return [];
+            return new ArrayObject();
         }
         return json_encode($data,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
     }
 }
 
 if (! function_exists('deJson')) {
-    function deJson($json)
+    function deJson($data, $ArrOrObejct=0)
     {
-        if (!$json){
-            return [];
+        if (!$data){
+            noneData:
+            switch ($ArrOrObejct){
+                case 0:
+                    $data = [];
+                    break;
+                case 2:
+                    $data = new ArrayObject();
+                    break;
+            }
+            return $data;
         }
-        return json_decode($json,true);
+        $data = json_decode($data,true);
+        if(!$data) {
+            goto noneData;
+        }
+        return $data;
     }
 }
 
