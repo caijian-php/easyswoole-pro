@@ -57,7 +57,7 @@ if (! function_exists('deJson')) {
                 case 0:
                     $data = [];
                     break;
-                case 2:
+                case 1:
                     $data = new ArrayObject();
                     break;
             }
