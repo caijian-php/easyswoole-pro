@@ -4,11 +4,11 @@
 namespace App\HttpController\Demo;
 
 
+use App\HttpController\ApiBase;
 use App\Sync\Driver\DemoDriver;
 use App\Sync\Invoker\DemoInvoker;
-use EasySwoole\Http\AbstractInterface\Controller;
 
-class Demo extends Controller
+class Demo extends ApiBase
 {
     public function index()
     {

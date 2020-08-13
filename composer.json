@@ -18,7 +18,9 @@
         "easyswoole/component": "^2.2",
         "guzzlehttp/guzzle": "^6.5",
         "easyswoole/words-match": "^1.0",
-        "alibabacloud/sdk": "^1.8"
+        "alibabacloud/sdk": "^1.8",
+        "easyswoole/log": "^1.0",
+        "symfony/var-dumper": "^5.1"
     },
     "autoload": {
         "psr-4": {

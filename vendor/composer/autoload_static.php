@@ -10,8 +10,10 @@ class ComposerStaticInit313e46d61265b0f37f96ca4eb9e9a356
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
+        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'd767e4fc2dc52fe66584ab8c6684783e' => __DIR__ . '/..' . '/adbario/php-dot-notation/src/helpers.php',
         '65fec9ebcfbb3cbb4fd0d519687aea01' => __DIR__ . '/..' . '/danielstjules/stringy/src/Create.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
@@ -44,9 +46,11 @@ class ComposerStaticInit313e46d61265b0f37f96ca4eb9e9a356
         'S' => 
         array (
             'Symfony\\Polyfill\\Util\\' => 22,
+            'Symfony\\Polyfill\\Php80\\' => 23,
             'Symfony\\Polyfill\\Php56\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
+            'Symfony\\Component\\VarDumper\\' => 28,
             'Symfony\\Component\\Finder\\' => 25,
             'SuperClosure\\' => 13,
             'Stringy\\' => 8,
@@ -147,6 +151,10 @@ class ComposerStaticInit313e46d61265b0f37f96ca4eb9e9a356
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-util',
         ),
+        'Symfony\\Polyfill\\Php80\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
+        ),
         'Symfony\\Polyfill\\Php56\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php56',
@@ -158,6 +166,10 @@ class ComposerStaticInit313e46d61265b0f37f96ca4eb9e9a356
         'Symfony\\Polyfill\\Ctype\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
+        ),
+        'Symfony\\Component\\VarDumper\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/var-dumper',
         ),
         'Symfony\\Component\\Finder\\' => 
         array (
@@ -528,8 +540,6 @@ class ComposerStaticInit313e46d61265b0f37f96ca4eb9e9a356
         'PHPUnit\\Util\\GlobalState' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/GlobalState.php',
         'PHPUnit\\Util\\InvalidArgumentHelper' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/InvalidArgumentHelper.php',
         'PHPUnit\\Util\\Json' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/Json.php',
-        'PHPUnit\\Util\\Log\\JUnit' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/Log/JUnit.php',
-        'PHPUnit\\Util\\Log\\TeamCity' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/Log/TeamCity.php',
         'PHPUnit\\Util\\PHP\\AbstractPhpProcess' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/PHP/AbstractPhpProcess.php',
         'PHPUnit\\Util\\PHP\\DefaultPhpProcess' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/PHP/DefaultPhpProcess.php',
         'PHPUnit\\Util\\PHP\\WindowsPhpProcess' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/PHP/WindowsPhpProcess.php',
@@ -890,6 +900,7 @@ class ComposerStaticInit313e46d61265b0f37f96ca4eb9e9a356
         'SebastianBergmann\\Timer\\RuntimeException' => __DIR__ . '/..' . '/phpunit/php-timer/src/RuntimeException.php',
         'SebastianBergmann\\Timer\\Timer' => __DIR__ . '/..' . '/phpunit/php-timer/src/Timer.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
         'TheSeer\\Tokenizer\\Exception' => __DIR__ . '/..' . '/theseer/tokenizer/src/Exception.php',
         'TheSeer\\Tokenizer\\NamespaceUri' => __DIR__ . '/..' . '/theseer/tokenizer/src/NamespaceUri.php',
@@ -899,6 +910,8 @@ class ComposerStaticInit313e46d61265b0f37f96ca4eb9e9a356
         'TheSeer\\Tokenizer\\TokenCollectionException' => __DIR__ . '/..' . '/theseer/tokenizer/src/TokenCollectionException.php',
         'TheSeer\\Tokenizer\\Tokenizer' => __DIR__ . '/..' . '/theseer/tokenizer/src/Tokenizer.php',
         'TheSeer\\Tokenizer\\XMLSerializer' => __DIR__ . '/..' . '/theseer/tokenizer/src/XMLSerializer.php',
+        'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
+        'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

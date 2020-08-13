@@ -183,8 +183,6 @@ return array(
     'PHPUnit\\Util\\GlobalState' => $vendorDir . '/phpunit/phpunit/src/Util/GlobalState.php',
     'PHPUnit\\Util\\InvalidArgumentHelper' => $vendorDir . '/phpunit/phpunit/src/Util/InvalidArgumentHelper.php',
     'PHPUnit\\Util\\Json' => $vendorDir . '/phpunit/phpunit/src/Util/Json.php',
-    'PHPUnit\\Util\\Log\\JUnit' => $vendorDir . '/phpunit/phpunit/src/Util/Log/JUnit.php',
-    'PHPUnit\\Util\\Log\\TeamCity' => $vendorDir . '/phpunit/phpunit/src/Util/Log/TeamCity.php',
     'PHPUnit\\Util\\PHP\\AbstractPhpProcess' => $vendorDir . '/phpunit/phpunit/src/Util/PHP/AbstractPhpProcess.php',
     'PHPUnit\\Util\\PHP\\DefaultPhpProcess' => $vendorDir . '/phpunit/phpunit/src/Util/PHP/DefaultPhpProcess.php',
     'PHPUnit\\Util\\PHP\\WindowsPhpProcess' => $vendorDir . '/phpunit/phpunit/src/Util/PHP/WindowsPhpProcess.php',
@@ -545,6 +543,7 @@ return array(
     'SebastianBergmann\\Timer\\RuntimeException' => $vendorDir . '/phpunit/php-timer/src/RuntimeException.php',
     'SebastianBergmann\\Timer\\Timer' => $vendorDir . '/phpunit/php-timer/src/Timer.php',
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
+    'Stringable' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
     'TheSeer\\Tokenizer\\Exception' => $vendorDir . '/theseer/tokenizer/src/Exception.php',
     'TheSeer\\Tokenizer\\NamespaceUri' => $vendorDir . '/theseer/tokenizer/src/NamespaceUri.php',
@@ -554,4 +553,6 @@ return array(
     'TheSeer\\Tokenizer\\TokenCollectionException' => $vendorDir . '/theseer/tokenizer/src/TokenCollectionException.php',
     'TheSeer\\Tokenizer\\Tokenizer' => $vendorDir . '/theseer/tokenizer/src/Tokenizer.php',
     'TheSeer\\Tokenizer\\XMLSerializer' => $vendorDir . '/theseer/tokenizer/src/XMLSerializer.php',
+    'UnhandledMatchError' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
+    'ValueError' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
 );
